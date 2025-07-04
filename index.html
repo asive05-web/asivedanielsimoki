@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asive Daniel Simoki - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles.js on sections
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js-experience', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#C0943B" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "grab" },
+                            onclick: { enable: true, mode: "push" },
+                            onresize: { enable: true, density_auto: true, density_area: 400 }
+                        },
+                        modes: {
+                            grab: { distance: 140, line_linked: { opacity: 1 } },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#C0943B" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" }
+                        }
+                    }
+                });
+            }
+
+            // Add glitch effect to hero text
+            const heroText = document.querySelector('.typewriter');
+            if (heroText) {
+                setInterval(() => {
+                    heroText.classList.add('glitch');
+                    setTimeout(() => {
+                        heroText.classList.remove('glitch');
+                    }, 500);
+                }, 5000);
+            }
+        });
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C0943B',   // Gold/Mustard
+                        secondary: '#0F1E3A',  // Navy blue
+                        code: '#1A1A1A',      // Dark black
+                        accent: '#C0943B',    // Gold/Mustard
+                        neon: '#C0943B',       // Gold accent
+                        cyber: '#C0943B',      // Gold accent
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Import fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+        /* Custom CSS */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Code-inspired elements */
+        .code-badge {
+            font-family: 'Fira Code', monospace;
+            background: rgba(30, 41, 59, 0.5);
+            border-left: 3px solid #5EEAD4;
+        }
+        
+        /* Animated cursor effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1rem;
+            background: #2563EB;
+            vertical-align: middle;
+            margin-left: 2px;
+            animation: blink 1.5s infinite;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #2563EB;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2563EB;
+            left: -7px;
+            top: 5px;
+        }
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            border-color: #C0943B;
+            box-shadow: 0 5px 15px rgba(192, 148, 59, 0.2);
+            background-color: rgba(192, 148, 59, 0.1);
+        }
+        /* Smooth scrolling with parallax effect */
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            transition: background-position 0.5s ease;
+        }
+        section:hover {
+            background-position: 0px -10px;
+        }
+        
+        /* Console-inspired contact button */
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-btn:hover {
+            background-color: #1D4ED8;
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #8338EC;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00F0FF;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(32px, 9999px, 76px, 0); }
+            20% { clip: rect(8px, 9999px, 14px, 0); }
+            40% { clip: rect(66px, 9999px, 82px, 0); }
+            60% { clip: rect(92px, 9999px, 98px, 0); }
+            80% { clip: rect(53px, 9999px, 77px, 0); }
+            100% { clip: rect(12px, 9999px, 97px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(85px, 9999px, 15px, 0); }
+            20% { clip: rect(3px, 9999px, 82px, 0); }
+            40% { clip: rect(54px, 9999px, 2px, 0); }
+            60% { clip: rect(27px, 9999px, 99px, 0); }
+            80% { clip: rect(73px, 9999px, 38px, 0); }
+            100% { clip: rect(62px, 9999px, 52px, 0); }
+        }
+
+        /* Cyberpunk text shadow */
+        .cyber-text {
+            text-shadow: 0 0 5px #3A86FF, 0 0 10px #3A86FF, 0 0 20px #3A86FF;
+        }
+
+        /* Typewriter effect for hero */
+        .typewriter {
+            display: inline-block;
+            position: relative;
+            color: #00E0FF;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-secondary/90 z-50 backdrop-blur-sm border-b border-primary/20 shadow-[0_0_15px_rgba(192,148,59,0.5)]">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-primary font-mono">ASIVE<span class="text-white">SIMOKI</span><span class="cursor"></span></a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary transition">Home</a>
+                    <a href="#skills" class="hover:text-primary transition">Skills</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#projects" class="hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="hover:text-primary transition">Home</a>
+                    <a href="#skills" class="hover:text-primary transition">Skills</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#projects" class="hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-secondary relative overflow-hidden">
+        <div id="particles-js-home" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-primary/10 to-transparent animate-pulse"></div>
+            <div class="absolute inset-0 bg-[length:20px_20px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" 
+                 style="background-image: radial-gradient(hsla(0,0%,100%,.3) 1px,transparent 0);"></div>
+        </div>
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Hi, I'm <span class="text-primary">Asive Daniel Simoki</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 font-mono text-white">
+                    <span class="typewriter text-white">Full Stack Developer & UX/UI Designer</span>
+                </h2>
+                <p class="text-white mb-8 max-w-lg">
+                    A dedicated Full Stack Developer and UX/UI Designer with a strong passion for building intuitive and engaging digital solutions. My background spans both backend programming and frontend interface design, allowing me to craft applications that are not only functional but also user-centered. I'm driven by the belief that effective technology must blend clean code with thoughtful design, and I aim to help businesses transform their ideas into impactful digital experiences.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-primary hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition contact-btn">
+                        <span class="font-mono"> </span>Hire Me
+                    </a>
+                    <a href="https://drive.google.com/file/d/1aaDj5HRU9VcOhiw859_4HboviEV8uO1J/view?usp=sharing" class="bg-[#1A2B4D] border border-primary text-white hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition flex items-center">
+                        <i class="fas fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
+                    <img src="Adobe Express - file (2).png" 
+                         alt="Asive Daniel Simoki" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-primary opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    My Skills
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
+                </span>
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(192,148,59,0.5)]" 
+                     data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fab fa-vuejs"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Vue.js</h3>
+                    <p class="text-gray-400 text-sm">Frontend Development</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Node.js</h3>
+                    <p class="text-gray-400 text-sm">Backend Development</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p=6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">MySQL</h3>
+                    <p class="text-gray-400 text-sm">Database Management</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">UI/UX Design</h3>
+                    <p class="text-gray-400 text-sm">User Experience</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">JavaScript</h3>
+                    <p class="text-gray-400 text-sm">Full Stack</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">CSS</h3>
+                    <p class="text-gray-400 text-sm">Styling</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Responsive Design</h3>
+                    <p class="text-gray-400 text-sm">Mobile First</p>
+                </div>
+                
+                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
+                    <div class="text-primary text-4xl mb-3">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Git</h3>
+                    <p class="text-gray-400 text-sm">Version Control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-secondary relative overflow-hidden">
+        <div id="particles-js-experience" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-primary/10 to-transparent animate-pulse"></div>
+            <div class="absolute inset-0 bg-[length:20px_20px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" 
+                 style="background-image: radial-gradient(hsla(0,0%,100%,.3) 1px,transparent 0);"></div>
+        </div>
+        <div class="container mx-auto relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Work Experience
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
+                </span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-bold text-primary mb-2">Web Developer</h3>
+                    <p class="text-gray-300 mb-1">LC Studio</p>
+                    <p class="text-gray-400 text-sm mb-4">2025 - Present</p>
+                    <ul class="text-gray-300 list-disc pl-5 space-y-2">
+                        <li>Worked on end-to-end web development projects</li>
+                        <li>Collaborated with cross-functional teams to deliver high-quality, responsive websites and web applications</li>
+                        <li>Implemented modern UI/UX principles in all projects</li>
+                        <li>Optimized application performance and accessibility</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-bold text-primary mb-2">Customer Service Associate</h3>
+                    <p class="text-gray-300 mb-1">Woolworths</p>
+                    <p class="text-gray-400 text-sm mb-4">2023 - 2024</p>
+                    <ul class="text-gray-300 list-disc pl-5 space-y-2">
+                        <li>Provided top tier customer service</li>
+                        <li>Improved communication and problem-solving skills</li>
+                        <li>Worked in fast-paced retail environment</li>
+                        <li>Developed strong interpersonal skills</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-primary mb-2">Retail Associate</h3>
+                    <p class="text-gray-300 mb-1">Truworths</p>
+                    <p class="text-gray-400 text-sm mb-4">2018 - 2022</p>
+                    <ul class="text-gray-300 list-disc pl-5 space-y-2">
+                        <li>Gained valuable communication skills</li>
+                        <li>Worked with diverse teams</li>
+                        <li>Learned the importance of empathy in customer support</li>
+                        <li>Developed time management and organizational skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    My Projects
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
+                </span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" 
+                             alt="AI Dashboard" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">AI Analytics Dashboard</h3>
+                        <p class="text-gray-300 mb-4">
+                            Machine learning dashboard with real-time data visualization and predictive analytics capabilities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">D3.js</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1136&q=80" 
+                             alt="ModernTech Solutions" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">ModernTech Solutions</h3>
+                        <p class="text-gray-300 mb-4">
+                            A comprehensive business solution platform with analytics dashboard, CRM, and project management tools.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Figma</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1557003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                             alt="Fullstack E-commerce" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Fullstack E-commerce</h3>
+                        <p class="text-gray-300 mb-4">
+                            Complete e-commerce solution with product management, shopping cart, user authentication, and payment processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">MySQL</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Figma</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Canva</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555774698-0f77e70ac3c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="OT Enterprise System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">OT Enterprise System</h3>
+                        <p class="text-gray-300 mb-4">
+                            Oracle APEX application for enterprise resource planning with modules for HR, inventory, and financial management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Oracle APEX</span>
+                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Oracle DB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-yellow-500 transition">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Get In Touch
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
+                </span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-12 text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Ready to start a project?</h3>
+                    <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                        If you'd like to discuss a potential project or have any questions, please feel free to reach out using the contact form below.
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <a href="https://docs.google.com/forms/d/14IxE0pXF2fqd8TSW1MwMRPSwE8YNbbCLWsaQaskOtKQ/edit" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="contact-btn bg-primary hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition flex items-center">
+                        <i class="fas fa-envelope mr-3"></i> Contact Me via Google Form
+                    </a>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Location</h4>
+                        <p class="text-gray-300">South Africa, Cape Town</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-envelope text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Email</h4>
+                        <p class="text-gray-300">danielasivesimoki05@gmail.com</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-phone-alt text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Phone</h4>
+                        <p class="text-gray-300">+27 65 927 136</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://github.com/asive05-web" 
+                       class="w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asive-daniel-simoki-6b91a9360/?originalSubdomain=za" 
+                       class="w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function () {
+        // Common particle configuration
+        const particleConfig = {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#C0943B" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                },
+                modes: {
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        };
+
+        // Apply to both sections if they exist
+        if (document.getElementById('particles-js-experience')) {
+            particlesJS('particles-js-experience', particleConfig);
+        }
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', particleConfig);
+        }
+
+        // Add glitch effect to hero text
+        const heroText = document.querySelector('.typewriter');
+        if (heroText) {
+            setInterval(() => {
+                heroText.classList.add('glitch');
+                setTimeout(() => {
+                    heroText.classList.remove('glitch');
+                }, 500);
+            }, 5000);
+        }
+    });
+
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#C0943B',
+                    secondary: '#0F1E3A',
+                    code: '#1A1A1A',
+                    accent: '#C0943B',
+                    neon: '#C0943B',
+                    cyber: '#C0943B',
+                },
+                backgroundImage: {
+                    'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                },
+                fontFamily: {
+                    mono: ['"Fira Code"', 'monospace'],
+                    sans: ['Inter', 'sans-serif']
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
