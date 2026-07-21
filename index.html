@@ -6,84 +6,16 @@
     <title>Asive Daniel Simoki - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize particles.js
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize particles.js on sections
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js-experience', {
-                    particles: {
-                        number: { value: 80, density: { enable: true, value_area: 800 } },
-                        color: { value: "#C0943B" },
-                        shape: { type: "circle" },
-                        opacity: { value: 0.5, random: true },
-                        size: { value: 3, random: true },
-                        line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
-                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: {
-                            onhover: { enable: true, mode: "grab" },
-                            onclick: { enable: true, mode: "push" },
-                            onresize: { enable: true, density_auto: true, density_area: 400 }
-                        },
-                        modes: {
-                            grab: { distance: 140, line_linked: { opacity: 1 } },
-                            push: { particles_nb: 4 }
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: { value: 80, density: { enable: true, value_area: 800 } },
-                        color: { value: "#C0943B" },
-                        shape: { type: "circle" },
-                        opacity: { value: 0.5, random: true },
-                        size: { value: 3, random: true },
-                        line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
-                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: {
-                            onhover: { enable: true, mode: "repulse" },
-                            onclick: { enable: true, mode: "push" }
-                        }
-                    }
-                });
-            }
-
-            // Add glitch effect to hero text
-            const heroText = document.querySelector('.typewriter');
-            if (heroText) {
-                setInterval(() => {
-                    heroText.classList.add('glitch');
-                    setTimeout(() => {
-                        heroText.classList.remove('glitch');
-                    }, 500);
-                }, 5000);
-            }
-        });
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#C0943B',   // Gold/Mustard
-                        secondary: '#0F1E3A',  // Navy blue
-                        code: '#1A1A1A',      // Dark black
-                        accent: '#C0943B',    // Gold/Mustard
-                        neon: '#C0943B',       // Gold accent
-                        cyber: '#C0943B',      // Gold accent
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                        primary: '#C0943B',
+                        secondary: '#0F1E3A',
+                        midnight: '#0A1424',
+                        code: '#1A1A1A',
+                        accent: '#C0943B',
                     },
                     fontFamily: {
                         mono: ['"Fira Code"', 'monospace'],
@@ -94,493 +26,489 @@
         }
     </script>
     <style>
-        /* Import fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
-        /* Custom CSS */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Code-inspired elements */
-        .code-badge {
-            font-family: 'Fira Code', monospace;
-            background: rgba(30, 41, 59, 0.5);
-            border-left: 3px solid #5EEAD4;
-        }
-        
-        /* Animated cursor effect */
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1rem;
-            background: #2563EB;
-            vertical-align: middle;
-            margin-left: 2px;
-            animation: blink 1.5s infinite;
-        }
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid #2563EB;
-        }
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #2563EB;
-            left: -7px;
-            top: 5px;
-        }
-        .project-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
-        .skill-badge {
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-        .skill-badge:hover {
-            transform: translateY(-3px);
-            border-color: #C0943B;
-            box-shadow: 0 5px 15px rgba(192, 148, 59, 0.2);
-            background-color: rgba(192, 148, 59, 0.1);
-        }
-        /* Smooth scrolling with parallax effect */
-        html {
-            scroll-behavior: smooth;
-        }
-        section {
-            transition: background-position 0.5s ease;
-        }
-        section:hover {
-            background-position: 0px -10px;
-        }
-        
-        /* Console-inspired contact button */
-        .contact-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-btn:hover {
-            background-color: #1D4ED8;
-        }
-        
-        /* Glitch effect */
-        .glitch {
-            position: relative;
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-        }
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 #8338EC;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim-1 2s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -2px;
-            text-shadow: -2px 0 #00F0FF;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim-2 2s infinite linear alternate-reverse;
-        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: #0A1424; overflow-x: hidden; }
 
-        @keyframes glitch-anim-1 {
-            0% { clip: rect(32px, 9999px, 76px, 0); }
-            20% { clip: rect(8px, 9999px, 14px, 0); }
-            40% { clip: rect(66px, 9999px, 82px, 0); }
-            60% { clip: rect(92px, 9999px, 98px, 0); }
-            80% { clip: rect(53px, 9999px, 77px, 0); }
-            100% { clip: rect(12px, 9999px, 97px, 0); }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor { display: inline-block; width: 8px; height: 1rem; background: #C0943B; vertical-align: middle; margin-left: 2px; animation: blink 1.5s infinite; }
 
-        @keyframes glitch-anim-2 {
-            0% { clip: rect(85px, 9999px, 15px, 0); }
-            20% { clip: rect(3px, 9999px, 82px, 0); }
-            40% { clip: rect(54px, 9999px, 2px, 0); }
-            60% { clip: rect(27px, 9999px, 99px, 0); }
-            80% { clip: rect(73px, 9999px, 38px, 0); }
-            100% { clip: rect(62px, 9999px, 52px, 0); }
-        }
+        .typewriter { display: inline-block; position: relative; color: #E8C97A; }
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; }
+        .glitch::before { left: 2px; text-shadow: -2px 0 #8338EC; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim-1 2s infinite linear alternate-reverse; }
+        .glitch::after { left: -2px; text-shadow: -2px 0 #00F0FF; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim-2 2s infinite linear alternate-reverse; }
+        @keyframes glitch-anim-1 { 0% { clip: rect(32px,9999px,76px,0);} 20% { clip: rect(8px,9999px,14px,0);} 40% { clip: rect(66px,9999px,82px,0);} 60% { clip: rect(92px,9999px,98px,0);} 80% { clip: rect(53px,9999px,77px,0);} 100% { clip: rect(12px,9999px,97px,0);} }
+        @keyframes glitch-anim-2 { 0% { clip: rect(85px,9999px,15px,0);} 20% { clip: rect(3px,9999px,82px,0);} 40% { clip: rect(54px,9999px,2px,0);} 60% { clip: rect(27px,9999px,99px,0);} 80% { clip: rect(73px,9999px,38px,0);} 100% { clip: rect(62px,9999px,52px,0);} }
 
-        /* Cyberpunk text shadow */
-        .cyber-text {
-            text-shadow: 0 0 5px #3A86FF, 0 0 10px #3A86FF, 0 0 20px #3A86FF;
-        }
+        .skill-badge { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; border: 1px solid transparent; }
+        .skill-badge:hover { transform: translateY(-3px); border-color: #C0943B; box-shadow: 0 5px 15px rgba(192,148,59,0.2); background-color: rgba(192,148,59,0.08); }
+        .expertise-tab { color: #D1D5DB; background: transparent; }
+        .expertise-tab:hover { background: rgba(255,255,255,0.05); }
+        .expertise-tab.active { background: rgba(192,148,59,0.14); color: #C0943B; }
+        .expertise-tag { font-size: 13.5px; font-weight: 600; color: #E5E7EB; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 9px 16px; border-radius: 100px; }
+        .project-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5); border-color: rgba(192,148,59,0.4); }
+        .contact-btn { position: relative; overflow: hidden; }
 
-        /* Typewriter effect for hero */
-        .typewriter {
-            display: inline-block;
-            position: relative;
-            color: #00E0FF;
-        }
+        /* --- Nav --- */
+        #site-nav { transition: box-shadow .3s ease, background-color .3s ease; }
+        #site-nav.scrolled { box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6); background-color: rgba(15,30,58,0.92); }
+        .nav-link { padding: 8px 14px; border-radius: 100px; font-size: 14px; font-weight: 600; transition: background-color .2s ease, color .2s ease; }
+        .nav-link.nav-active { background: #C0943B; color: #0A1424; }
+
+        /* --- Reveal-on-scroll --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .mask-reveal { overflow: hidden; display: inline-block; vertical-align: top; }
+        .mask-reveal > span { display: inline-block; transform: translateY(115%); transition: transform .85s cubic-bezier(.16,1,.3,1); }
+        .mask-reveal.is-visible > span { transform: translateY(0); }
+
+        /* --- Hero parallax + floating particles --- */
+        #hero-parallax { will-change: transform, opacity, filter; }
+        .fx-dot { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(192,148,59,0.85), transparent 70%); pointer-events: none; animation: fxDrift ease-in-out infinite; }
+        @keyframes fxDrift { 0%, 100% { transform: translate(0,0); opacity: .45; } 50% { transform: translate(10px,-26px); opacity: 1; } }
+
+        /* --- Chapter tilt sections --- */
+        .chapter { will-change: transform, opacity; }
+
+        /* --- Cinematic Journey --- */
+        #journey-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .journey-road { position: absolute; left: -30%; right: -30%; bottom: 0; height: 46%; background: repeating-linear-gradient(90deg, transparent 0 38px, rgba(192,148,59,0.16) 38px 41px); transform-origin: bottom center; pointer-events: none; }
+        .journey-card { position: absolute; inset: 0; margin: auto; width: min(640px, 92vw); height: min(440px, 62vh); background: #101F3D; border: 1px solid rgba(192,148,59,0.22); border-radius: 20px; padding: clamp(24px,3.4vw,40px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.65); will-change: transform, opacity, filter; }
+        .journey-dots { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
+        .journey-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background-color .3s ease; }
+        .journey-dot.active { background: #C0943B; }
+
+        /* --- Magnetic buttons --- */
+        .magnetic { transition: transform .2s ease; }
+
+        /* --- Reduced motion: collapse everything to a safe, simple state --- */
+        [data-motion="reduced"] .chapter { opacity: 1 !important; transform: none !important; }
+        [data-motion="reduced"] #hero-parallax { opacity: 1 !important; transform: none !important; filter: none !important; }
+        [data-motion="reduced"] .fx-dot { display: none; }
+        [data-motion="reduced"] #journey-pin { height: auto !important; }
+        [data-motion="reduced"] #journey-sticky { position: static; height: auto; display: block; padding: 20px 0 60px; }
+        [data-motion="reduced"] .journey-road, [data-motion="reduced"] .journey-dots { display: none; }
+        [data-motion="reduced"] .journey-card { position: relative; inset: auto; width: 100%; max-width: 640px; margin: 0 auto 24px; opacity: 1 !important; transform: none !important; filter: none !important; }
+        [data-motion="reduced"] .mask-reveal > span { transition: none; }
     </style>
 </head>
-<body class="bg-secondary text-white font-sans">
+<body class="text-white font-sans">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-secondary/90 z-50 backdrop-blur-sm border-b border-primary/20 shadow-[0_0_15px_rgba(192,148,59,0.5)]">
+    <nav id="site-nav" class="fixed w-full top-0 z-50 backdrop-blur-sm border-b border-primary/20">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold text-primary font-mono">ASIVE<span class="text-white">SIMOKI</span><span class="cursor"></span></a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-primary transition">Home</a>
-                    <a href="#skills" class="hover:text-primary transition">Skills</a>
-                    <a href="#experience" class="hover:text-primary transition">Experience</a>
-                    <a href="#projects" class="hover:text-primary transition">Projects</a>
-                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                <a href="#home" class="text-2xl font-bold text-primary font-mono">ASIVE<span class="text-white">SIMOKI</span><span class="cursor"></span></a>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home" data-nav-link class="nav-link">Home</a>
+                    <a href="#skills" data-nav-link class="nav-link">Skills</a>
+                    <a href="#projects" data-nav-link class="nav-link">Work</a>
+                    <a href="#experience" data-nav-link class="nav-link">Journey</a>
+                    <a href="#contact" data-nav-link class="nav-link">Contact</a>
                 </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
-            <!-- Mobile menu -->
             <div class="md:hidden hidden mt-4" id="mobile-menu">
                 <div class="flex flex-col space-y-3">
                     <a href="#home" class="hover:text-primary transition">Home</a>
                     <a href="#skills" class="hover:text-primary transition">Skills</a>
-                    <a href="#experience" class="hover:text-primary transition">Experience</a>
-                    <a href="#projects" class="hover:text-primary transition">Projects</a>
+                    <a href="#projects" class="hover:text-primary transition">Work</a>
+                    <a href="#experience" class="hover:text-primary transition">Journey</a>
                     <a href="#contact" class="hover:text-primary transition">Contact</a>
                 </div>
-                
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-6 bg-secondary relative overflow-hidden">
-        <div id="particles-js-home" class="absolute inset-0 z-0"></div>
+    <!-- HERO -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-secondary relative overflow-hidden min-h-screen flex items-center">
+        <div id="fx-dots" class="absolute inset-0 z-0 pointer-events-none"></div>
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
             <div class="absolute inset-0 bg-gradient-to-br from-transparent via-primary/10 to-transparent animate-pulse"></div>
-            <div class="absolute inset-0 bg-[length:20px_20px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" 
-                 style="background-image: radial-gradient(hsla(0,0%,100%,.3) 1px,transparent 0);"></div>
         </div>
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div id="hero-parallax" class="container mx-auto flex flex-col md:flex-row items-center relative z-10">
             <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 font-mono text-xs text-gray-300 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> Available for new opportunities
+                </div>
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Hi, I'm <span class="text-primary">Asive Daniel Simoki</span></h1>
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6 font-mono text-white">
                     <span class="typewriter text-white">Full Stack Developer & UX/UI Designer</span>
                 </h2>
                 <p class="text-white mb-8 max-w-lg">
-                    A dedicated Full Stack Developer and UX/UI Designer with a strong passion for building intuitive and engaging digital solutions. My background spans both backend programming and frontend interface design, allowing me to craft applications that are not only functional but also user-centered. I'm driven by the belief that effective technology must blend clean code with thoughtful design, and I aim to help businesses transform their ideas into impactful digital experiences.
+                    Versatile and driven Full Stack Developer with practical experience building user-centric web applications and solutions, including an E-Commerce Website with admin dashboard (Vue.js, Node.js, MySQL, Stripe/Paystack), an Employee Information Dashboard (HTML, CSS, JavaScript), a Fast Food Mobile Ordering App concept (SCRUM methodology), a Price Comparison App (Flutter + Python web scraping), and an Oracle APEX Enterprise Analytics Project. At Ferguson Media I own projects end to end, covering design, development, SEO, deployment, and Google Analytics, for clients across finance, tourism, and NGO sectors. A graduate of Life Choices Academy's intensive development bootcamp and internship program, I bring strong teamwork, communication, and problem-solving skills, and I'm committed to continuous learning and contributing to impactful digital solutions.
                 </p>
-<div class="flex space-x-4 relative z-10">
-    <a href="#contact" 
-       class="bg-primary hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition contact-btn relative z-10">
-        Hire Me
-    </a>
-    <a href="https://drive.google.com/file/d/1BO1KVgzuaDTARLJeoCXv9xBddQ6FZS5A/view?usp=sharing"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="bg-[#1A2B4D] border border-primary text-white hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition flex items-center justify-center space-x-2 relative z-10">
-        <i class="fas fa-download"></i>
-        <span>Download CV</span>
-    </a>
-</div>
-
+                <div class="flex space-x-4 relative z-10">
+                    <a href="#contact" class="magnetic bg-primary hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition contact-btn relative z-10">
+                        Hire Me
+                    </a>
+                    <a href="https://drive.google.com/file/d/1BO1KVgzuaDTARLJeoCXv9xBddQ6FZS5A/view?usp=sharing"
+                       target="_blank" rel="noopener noreferrer"
+                       class="magnetic bg-[#1A2B4D] border border-primary text-white hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition flex items-center justify-center space-x-2 relative z-10">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
-                    <img src="PHOTO-2025-05-26-08-56-38.jpg" 
-                         alt="Asive Daniel Simoki" class="w-full h-full object-cover">
+                    <img src="PHOTO-2025-05-26-08-56-38.jpg" alt="Asive Daniel Simoki" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-primary opacity-20"></div>
                 </div>
             </div>
         </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-gray-400 text-xs font-mono flex flex-col items-center gap-1 opacity-70">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 bg-gray-900">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="relative inline-block">
-                    My Skills
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
-                </span>
-            </h2>
-            
+    <!-- SKILLS / EXPERTISE -->
+    <section id="skills" class="chapter py-20 px-6 bg-gray-900 relative z-10">
+        <div class="container mx-auto max-w-5xl">
+            <div class="mb-14 reveal" data-reveal>
+                <div class="font-mono text-xs tracking-widest uppercase text-primary mb-3">Capabilities</div>
+                <h2 class="mask-reveal reveal text-3xl md:text-4xl font-bold" data-reveal><span>Technical Expertise</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-[240px_1fr] gap-6 reveal mb-20" data-reveal style="transition-delay:80ms">
+                <div class="flex flex-col gap-1" id="expertise-tabs">
+                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="0">Frontend Engineering</button>
+                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="1">Backend &amp; Infrastructure</button>
+                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="2">Product &amp; Design</button>
+                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="3">Growth &amp; Delivery</button>
+                </div>
+
+                <div class="bg-secondary border border-white/10 rounded-2xl p-8">
+                    <p id="expertise-desc" class="text-gray-300 leading-relaxed mb-7"></p>
+                    <div id="expertise-tags" class="flex flex-wrap gap-3"></div>
+                </div>
+            </div>
+
+            <div class="text-center mb-12 reveal" data-reveal>
+                <h3 class="text-xl font-bold text-white">Everything I Work With</h3>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(192,148,59,0.5)]" 
-                     data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fab fa-vuejs"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center border border-primary/20" data-reveal>
+                    <div class="text-primary text-4xl mb-3"><i class="fab fa-vuejs"></i></div>
                     <h3 class="font-bold text-lg">Vue.js</h3>
                     <p class="text-gray-400 text-sm">Frontend Development</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fab fa-node-js"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:40ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fab fa-node-js"></i></div>
                     <h3 class="font-bold text-lg">Node.js</h3>
                     <p class="text-gray-400 text-sm">Backend Development</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p=6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fas fa-database"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:80ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-database"></i></div>
                     <h3 class="font-bold text-lg">MySQL</h3>
                     <p class="text-gray-400 text-sm">Database Management</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:120ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-paint-brush"></i></div>
                     <h3 class="font-bold text-lg">UI/UX Design</h3>
                     <p class="text-gray-400 text-sm">User Experience</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fab fa-js"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal>
+                    <div class="text-primary text-4xl mb-3"><i class="fab fa-js"></i></div>
                     <h3 class="font-bold text-lg">JavaScript</h3>
                     <p class="text-gray-400 text-sm">Full Stack</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:40ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fab fa-css3-alt"></i></div>
                     <h3 class="font-bold text-lg">CSS</h3>
                     <p class="text-gray-400 text-sm">Styling</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:80ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-mobile-alt"></i></div>
                     <h3 class="font-bold text-lg">Responsive Design</h3>
                     <p class="text-gray-400 text-sm">Mobile First</p>
                 </div>
-                
-                <div class="skill-badge bg-secondary p-6 rounded-lg text-center">
-                    <div class="text-primary text-4xl mb-3">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:120ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-code-branch"></i></div>
                     <h3 class="font-bold text-lg">Git</h3>
                     <p class="text-gray-400 text-sm">Version Control</p>
                 </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal>
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-search"></i></div>
+                    <h3 class="font-bold text-lg">SEO</h3>
+                    <p class="text-gray-400 text-sm">Search Optimization</p>
+                </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:40ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="font-bold text-lg">Google Analytics</h3>
+                    <p class="text-gray-400 text-sm">Web Analytics</p>
+                </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:80ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3 class="font-bold text-lg">Deployment</h3>
+                    <p class="text-gray-400 text-sm">Hosting &amp; CI</p>
+                </div>
+                <div class="skill-badge reveal bg-secondary p-6 rounded-lg text-center" data-reveal style="transition-delay:120ms">
+                    <div class="text-primary text-4xl mb-3"><i class="fas fa-palette"></i></div>
+                    <h3 class="font-bold text-lg">Canva</h3>
+                    <p class="text-gray-400 text-sm">Design &amp; Graphics</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-20 px-6 bg-secondary relative overflow-hidden">
-        <div id="particles-js-experience" class="absolute inset-0 z-0"></div>
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-primary/10 to-transparent animate-pulse"></div>
-            <div class="absolute inset-0 bg-[length:20px_20px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" 
-                 style="background-image: radial-gradient(hsla(0,0%,100%,.3) 1px,transparent 0);"></div>
-        </div>
-        <div class="container mx-auto relative z-10">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="relative inline-block">
-                    Work Experience
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
-                </span>
-            </h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="timeline-item mb-12">
-                    <h3 class="text-xl font-bold text-primary mb-2">Web Developer</h3>
-                    <p class="text-gray-300 mb-1">LC Studio</p>
-                    <p class="text-gray-400 text-sm mb-4">2025 - Present</p>
-                    <ul class="text-gray-300 list-disc pl-5 space-y-2">
-                        <li>Worked on end-to-end web development projects</li>
-                        <li>Collaborated with cross-functional teams to deliver high-quality, responsive websites and web applications</li>
-                        <li>Implemented modern UI/UX principles in all projects</li>
-                        <li>Optimized application performance and accessibility</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3 class="text-xl font-bold text-primary mb-2">LC Academy Intensive Bootcamp</h3>
-                    <p class="text-gray-300 mb-1">Full Stack Development Program</p>
-                    <p class="text-gray-400 text-sm mb-4">2024 (6 months)</p>
-                    <ul class="text-gray-300 list-disc pl-5 space-y-2">
-                        <li>Completed intensive full-stack development training program</li>
-                        <li>Mastered modern web development technologies including Vue.js, Node.js, and MySQL</li>
-                        <li>Developed multiple real-world projects with Agile methodologies</li>
-                        <li>Learned industry best practices for clean code and responsive design</li>
-                        <li>Gained expertise in UI/UX principles and implementation</li>
-                    </ul>
-                </div>
-</div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 bg-gray-900">
+    <!-- WORK / PROJECTS -->
+    <section id="projects" class="chapter py-20 px-6 bg-secondary relative z-10">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="relative inline-block">
-                    Projects
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
-                </span>
-            </h2>
-            
+            <div class="text-center mb-16 reveal" data-reveal>
+                <div class="font-mono text-xs tracking-widest uppercase text-primary mb-3">Selected Work</div>
+                <h2 class="mask-reveal reveal text-3xl font-bold" data-reveal><span>Platforms built to move real outcomes.</span></h2>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Project 1: Chicken & Brand Identity -->
-<div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
-    <div class="h-48 overflow-hidden">
-        <img src="chicken2.png" alt="Chicken & Brand Identity" class="w-full h-full object-cover">
-    </div>
-    <div class="p-6">
-        <h3 class="text-xl font-bold text-primary mb-2">Chicken & Brand Identity</h3>
-        <p class="text-gray-300 mb-4">
-            A modern brand identity and website for a fast-food chain focused on streamlining mobile ordering experience.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">HTML</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">CSS</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">JavaScript</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Figma</span>
-        </div>
-        <div class="flex space-x-3">
-            <a href=" https://github.com/asive05-web " class="text-primary hover:text-yellow-500 transition">
-                <i class="fab fa-github text-xl"></i>
-            </a>
-            <a href="https://chickenand.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-yellow-500 transition">
-                <i class="fas fa-external-link-alt text-xl"></i>
-            </a>
-        </div>
-    </div>
-</div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1136&q=80" 
-                             alt="ModernTech Solutions" class="w-full h-full object-cover">
+
+                <!-- Ferguson Media -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal>
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/fergusonmedia.png" alt="Ferguson Media logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">ModernTech Solutions</h3>
-                        <p class="text-gray-300 mb-4">
-                            A comprehensive business solution platform with analytics dashboard, CRM, and project management tools.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Vue.js</span>
-                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Figma</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
-                                <i class="fab fa-github text-xl"></i>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Ferguson Media</h3>
+                        <p class="text-gray-300 mb-4">A youth-driven South African media and technology company blending storytelling, digital innovation, and CSI content production, with radio distribution reaching 8.5M+ potential listeners.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://fergusonmedia.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
                             </a>
-                            <a href="https://github.com/mikaeel203/Core-Project---ModernTech " target="_blank" rel="noopener noreferrer" class="text-primary hover:text-yellow-500 transition">
-    <i class="fas fa-external-link-alt text-xl"></i>
-</a>
                         </div>
                     </div>
                 </div>
-                
-<!-- Project 3: Lumiere -->
-<div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
-    <div class="h-48 overflow-hidden">
-        <img src="lumiere.png" 
-             alt="ModernTech Solutions" class="w-full h-full object-cover">
-    </div>
-    <div class="p-6">
-        <h3 class="text-xl font-bold text-primary mb-2">Lumiere Boutique</h3>
-        <p class="text-gray-300 mb-4">
-              Complete e-commerce solution with product management, shopping cart, user authentication, and payment processing..
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Vue.js</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Figma</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Node</span>
-            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Stripe</span>
-        </div>
-        <div class="flex space-x-3">
-            <!-- GitHub Button -->
-            <a href=" https://github.com/asive05-web " target="_blank" rel="noopener noreferrer" class="text-primary hover:text-yellow-500 transition">
-                <i class="fab fa-github text-xl"></i>
-            </a>
-            <!-- External Link Button -->
-            <a href= "https://github.com/luthandodake10111/Lumiere_Boutique_e-Commerce_Module-3/tree/frontend "target="_blank" rel="noopener noreferrer" class="text-primary hover:text-yellow-500 transition">
-                <i class="fas fa-external-link-alt text-xl"></i>
-            </a>
-        </div>
-    </div>
-</div>
-                
-                <!-- Project 4 -->
-                <div class="project-card bg-secondary rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="oracle.png" 
-                             alt="OT Enterprise System" class="w-full h-full object-cover">
+
+                <!-- Empire Partner Foundation SSIF -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:60ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/epfssif.png" alt="Empire Partner Foundation SSIF logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">OT Enterprise System</h3>
-                        <p class="text-gray-300 mb-4">
-                            Oracle APEX application for enterprise resource planning with modules for HR, inventory, and financial management.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Oracle APEX</span>
-                            <span class="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">Oracle DB</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="https://github.com/asive05-web" class="text-primary hover:text-yellow-500 transition">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" class="text-primary hover:text-yellow-500 transition">
-                                <i class="fas fa-external-link-alt text-xl"></i>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Empire Partner Foundation SSIF</h3>
+                        <p class="text-gray-300 mb-4">A Sustainable Social Impact Fund: a dual-channel impact investing platform delivering measurable social returns across South Africa.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://fergusonmediaza-beep.github.io/epfssif-website/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
                             </a>
                         </div>
                     </div>
+                </div>
+
+                <!-- EPF Ecosystem -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:120ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/epfecosystem.png" alt="EPF Ecosystem logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">EPF Ecosystem</h3>
+                        <p class="text-gray-300 mb-4">A Pan-African AI and Smart ICT ecosystem turning public sector challenges into scalable market opportunities, backed by R300M+ in funding and 12,000+ youth trained across 5+ countries.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://www.epfecosystem.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- One Water -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:180ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/onewater.png" alt="One Water logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">One Water</h3>
+                        <p class="text-gray-300 mb-4">A smart water infrastructure platform combining digital twins and AI-driven analytics with live pipeline repair, cutting water waste and preventing shutdowns across Africa.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://onewater.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tourism Mobility Service -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal>
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/tourismmobility.png" alt="Tourism Mobility Service logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Tourism Mobility Service</h3>
+                        <p class="text-gray-300 mb-4">A super-app ecosystem connecting tourists and local travellers with vetted mobility operators, unifying rides, deliveries, and safety tools in one platform.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://tourismmobilityservice.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrepreneur Wealth Creation -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:60ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/entrepreneurwealth.png" alt="Entrepreneur Wealth Creation logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Entrepreneur Wealth Creation</h3>
+                        <p class="text-gray-300 mb-4">A wealth realization engine helping South African entrepreneurs build and scale sustainable wealth.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://entrepreneurwealthcreation.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capital Innovation Fund -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:120ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/capitalinnovation.png" alt="Capital Innovation Fund logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Capital Innovation Fund</h3>
+                        <p class="text-gray-300 mb-4">An infrastructure intelligence platform giving investors real-time, AI-powered visibility into Africa's water, energy, and transport infrastructure.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://capitalinnovationfund.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queensway Capital -->
+                <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:180ms">
+                    <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
+                        <img src="img/clients/queensway.png" alt="Queensway Capital logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-primary mb-2">Queensway Capital</h3>
+                        <p class="text-gray-300 mb-4">A growth activation firm embedding fractional leadership with enterprises, investors, and startups across Africa to drive growth without CapEx burden.</p>
+                        <div class="mt-auto pt-4 flex justify-center">
+                            <a href="https://www.queenswaycapital.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
+                                <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JOURNEY (cinematic pinned experience) -->
+    <section id="experience" class="relative bg-[#0C1830] z-10">
+        <div class="max-w-2xl mx-auto px-6 pt-28 pb-10 text-center">
+            <div class="font-mono text-xs tracking-widest uppercase text-primary mb-4 reveal" data-reveal>Career Path</div>
+            <h2 class="mask-reveal reveal text-3xl md:text-5xl font-bold mb-5" data-reveal><span>The road so far.</span></h2>
+            <p class="text-gray-400 max-w-md mx-auto text-sm leading-relaxed reveal" data-reveal style="transition-delay:120ms">Scroll to travel through each chapter &mdash; the active role comes into focus while the rest recede into the distance.</p>
+        </div>
+
+        <div id="journey-pin" class="relative" style="height: 400vh;">
+            <div id="journey-sticky">
+                <div id="journey-road" class="journey-road"></div>
+                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center 60%, transparent 30%, #0C1830 85%);"></div>
+
+                <div class="relative z-[2] w-full h-full flex items-center justify-center px-5">
+                    <div class="relative" style="width:min(640px,92vw); height:min(440px,62vh);">
+
+                        <div class="journey-card" data-journey-card data-index="0">
+                            <div class="flex justify-between items-start gap-3 mb-4">
+                                <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-mono font-bold">01</div>
+                                <div class="font-mono text-xs text-gray-400 text-right">Mar 2026 &ndash; Present &middot; 5 mos</div>
+                            </div>
+                            <div class="text-xl md:text-2xl font-bold mb-1">Web Developer</div>
+                            <div class="text-primary font-semibold text-sm mb-4">Ferguson Media ZA &middot; Full-time</div>
+                            <ul class="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-1.5">
+                                <li>Own client projects end-to-end: design, development, SEO, deployment, Google Analytics</li>
+                                <li>Build and maintain client sites with Vue.js and CMS platforms</li>
+                            </ul>
+                        </div>
+
+                        <div class="journey-card" data-journey-card data-index="1">
+                            <div class="flex justify-between items-start gap-3 mb-4">
+                                <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-mono font-bold">02</div>
+                                <div class="font-mono text-xs text-gray-400 text-right">Jan 2026 &ndash; Mar 2026 &middot; 3 mos</div>
+                            </div>
+                            <div class="text-xl md:text-2xl font-bold mb-1">Web Developer</div>
+                            <div class="text-primary font-semibold text-sm mb-4">Empire Partner Foundation &middot; Full-time</div>
+                            <ul class="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-1.5">
+                                <li>Developed web solutions for the foundation's digital initiatives</li>
+                                <li>Collaborated cross-functionally on responsive websites</li>
+                            </ul>
+                        </div>
+
+                        <div class="journey-card" data-journey-card data-index="2">
+                            <div class="flex justify-between items-start gap-3 mb-4">
+                                <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-mono font-bold">03</div>
+                                <div class="font-mono text-xs text-gray-400 text-right">Apr 2025 &ndash; Nov 2025 &middot; 8 mos</div>
+                            </div>
+                            <div class="text-xl md:text-2xl font-bold mb-1">Intern</div>
+                            <div class="text-primary font-semibold text-sm mb-4">Life Choices Studio &middot; Cape Town</div>
+                            <ul class="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-1.5">
+                                <li>Built websites and mobile apps across development methodologies</li>
+                                <li>Worked with React.js on real-world project builds</li>
+                            </ul>
+                        </div>
+
+                        <div class="journey-card" data-journey-card data-index="3">
+                            <div class="flex justify-between items-start gap-3 mb-4">
+                                <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-mono font-bold">04</div>
+                                <div class="font-mono text-xs text-gray-400 text-right">2024 &middot; 6 months</div>
+                            </div>
+                            <div class="text-xl md:text-2xl font-bold mb-1">Full Stack Development Bootcamp</div>
+                            <div class="text-primary font-semibold text-sm mb-4">Life Choices Academy</div>
+                            <ul class="text-gray-300 text-sm leading-relaxed list-disc pl-5 space-y-1.5">
+                                <li>Mastered Vue.js, Node.js, and MySQL through Agile projects</li>
+                                <li>Gained expertise in UI/UX principles and implementation</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="journey-dots">
+                    <span class="journey-dot" data-dot></span>
+                    <span class="journey-dot" data-dot></span>
+                    <span class="journey-dot" data-dot></span>
+                    <span class="journey-dot" data-dot></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
-        <div id="particles-js" class="absolute inset-0 z-0"></div>
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="relative inline-block">
-                    Get In Touch
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
-                </span>
-            </h2>
-            
-            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-12 text-center">
+    <!-- CONTACT -->
+    <section id="contact" class="chapter py-20 px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden z-10">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[60vw] max-w-[800px] h-[400px] rounded-full bg-primary/10 blur-[110px] pointer-events-none"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16 reveal" data-reveal>
+                <div class="font-mono text-xs tracking-widest uppercase text-primary mb-3">Let's Talk</div>
+                <h2 class="mask-reveal reveal text-3xl font-bold" data-reveal><span>Get In Touch</span></h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-12 text-center reveal" data-reveal>
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-primary mb-4">Ready to start a project?</h3>
                     <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
                         If you'd like to discuss a potential project or have any questions, please feel free to reach out using the contact form below.
                     </p>
                 </div>
-                
+
                 <div class="flex justify-center">
-                    <a href="https://docs.google.com/forms/d/14IxE0pXF2fqd8TSW1MwMRPSwE8YNbbCLWsaQaskOtKQ/edit" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="contact-btn bg-primary hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition flex items-center">
+                    <a href="https://docs.google.com/forms/d/14IxE0pXF2fqd8TSW1MwMRPSwE8YNbbCLWsaQaskOtKQ/edit"
+                       target="_blank" rel="noopener noreferrer"
+                       class="magnetic contact-btn bg-primary hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-medium text-lg transition flex items-center">
                         <i class="fas fa-envelope mr-3"></i> Contact Me via Google Form
                     </a>
                 </div>
-                
+
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
@@ -589,7 +517,6 @@
                         <h4 class="font-bold text-white mb-1">Location</h4>
                         <p class="text-gray-300">South Africa, Cape Town</p>
                     </div>
-                    
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                             <i class="fas fa-envelope text-primary text-2xl"></i>
@@ -597,7 +524,6 @@
                         <h4 class="font-bold text-white mb-1">Email</h4>
                         <p class="text-gray-300">danielasivesimoki05@gmail.com</p>
                     </div>
-                    
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                             <i class="fas fa-phone-alt text-primary text-2xl"></i>
@@ -606,107 +532,253 @@
                         <p class="text-gray-300">076 592 7136</p>
                     </div>
                 </div>
-                
-               <div class="mt-12 flex justify-center space-x-6">
-    <!-- GitHub Link -->
-    <a href="https://github.com/asive05-web" 
-       target="_blank"
-       rel="noopener noreferrer"
-       class="w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
-        <i class="fab fa-github"></i>
-    </a>
-    
-    <!-- LinkedIn Link -->
-    <a href="https://www.linkedin.com/in/asive-daniel-simoki-6b91a9360/?originalSubdomain=za" 
-       target="_blank"
-       rel="noopener noreferrer"
-       class="w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-    
-    <!-- WhatsApp Link -->
-    <a href="https://wa.me/2765927136" 
-       target="_blank"
-       rel="noopener noreferrer"
-       class="w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
+
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://github.com/asive05-web" target="_blank" rel="noopener noreferrer"
+                       class="magnetic w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asive-daniel-simoki-6b91a9360/?originalSubdomain=za" target="_blank" rel="noopener noreferrer"
+                       class="magnetic w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/2765927136" target="_blank" rel="noopener noreferrer"
+                       class="magnetic w-12 h-12 rounded-full bg-gray-700 hover:bg-primary flex items-center justify-center transition text-xl relative z-10">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-   <script>
-    // Initialize particles.js
+    <footer class="py-8 px-6 text-center text-xs text-gray-500 border-t border-white/5 bg-secondary relative z-10">
+        &copy; 2026 Asive Daniel Simoki. Built with care in Cape Town.
+    </footer>
+
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Common particle configuration
-        const particleConfig = {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#C0943B" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#C0943B", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
-                },
-                modes: {
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        };
+        const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.documentElement.setAttribute('data-motion', reducedMotion ? 'reduced' : 'full');
+        const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 
-        // Apply to both sections if they exist
-        if (document.getElementById('particles-js-experience')) {
-            particlesJS('particles-js-experience', particleConfig);
-        }
-        if (document.getElementById('particles-js')) {
-            particlesJS('particles-js', particleConfig);
+        // ---------- Mobile menu ----------
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function () {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                menuToggle.setAttribute('aria-expanded', String(!isOpen));
+            });
+            mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
         }
 
-        // Add glitch effect to hero text
-        const heroText = document.querySelector('.typewriter');
-        if (heroText) {
-            setInterval(() => {
-                heroText.classList.add('glitch');
-                setTimeout(() => {
-                    heroText.classList.remove('glitch');
-                }, 500);
-            }, 5000);
-        }
-    });
-
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#C0943B',
-                    secondary: '#0F1E3A',
-                    code: '#1A1A1A',
-                    accent: '#C0943B',
-                    neon: '#C0943B',
-                    cyber: '#C0943B',
-                },
-                backgroundImage: {
-                    'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                },
-                fontFamily: {
-                    mono: ['"Fira Code"', 'monospace'],
-                    sans: ['Inter', 'sans-serif']
-                }
+        // ---------- Expertise tabs ----------
+        const expertiseCategories = [
+            { desc: 'Building fast, accessible interfaces with modern component architecture and a strong eye for detail.', items: ['Vue.js', 'JavaScript', 'CSS', 'Responsive Design'] },
+            { desc: 'Designing reliable data layers and APIs, then shipping and hosting them with confidence.', items: ['Node.js', 'MySQL', 'Deployment'] },
+            { desc: 'Translating client needs into interfaces that feel obvious, from research to high-fidelity UI.', items: ['UI/UX Design', 'Canva'] },
+            { desc: 'Owning projects end-to-end, from search visibility to version-control discipline.', items: ['SEO', 'Google Analytics', 'Git'] },
+        ];
+        const expertiseTabs = document.querySelectorAll('.expertise-tab');
+        const expertiseDesc = document.getElementById('expertise-desc');
+        const expertiseTags = document.getElementById('expertise-tags');
+        function setExpertiseTab(i) {
+            expertiseTabs.forEach(t => t.classList.toggle('active', parseInt(t.getAttribute('data-tab-index'), 10) === i));
+            const cat = expertiseCategories[i];
+            if (expertiseDesc) expertiseDesc.textContent = cat.desc;
+            if (expertiseTags) {
+                expertiseTags.innerHTML = '';
+                cat.items.forEach(item => {
+                    const span = document.createElement('span');
+                    span.className = 'expertise-tag';
+                    span.textContent = item;
+                    expertiseTags.appendChild(span);
+                });
             }
         }
-    }
-    
-</script>
+        expertiseTabs.forEach(tab => {
+            tab.addEventListener('click', () => setExpertiseTab(parseInt(tab.getAttribute('data-tab-index'), 10)));
+        });
+        if (expertiseTabs.length) setExpertiseTab(0);
 
+        // ---------- Glitch on hero text ----------
+        const heroText = document.querySelector('.typewriter');
+        if (heroText && !reducedMotion) {
+            setInterval(() => {
+                heroText.classList.add('glitch');
+                setTimeout(() => heroText.classList.remove('glitch'), 500);
+            }, 5000);
+        }
+
+        // ---------- Floating hero particles (CSS-only, no canvas) ----------
+        const fxContainer = document.getElementById('fx-dots');
+        if (fxContainer && !reducedMotion) {
+            const dots = [
+                { top: '14%', left: '10%', size: 5, delay: 0 },
+                { top: '24%', left: '85%', size: 3, delay: 1.2 },
+                { top: '55%', left: '18%', size: 4, delay: 2.4 },
+                { top: '70%', left: '92%', size: 3, delay: 0.6 },
+                { top: '82%', left: '30%', size: 4, delay: 1.8 },
+                { top: '35%', left: '55%', size: 3, delay: 3 },
+                { top: '12%', left: '65%', size: 4, delay: 1.5 },
+            ];
+            dots.forEach(d => {
+                const el = document.createElement('div');
+                el.className = 'fx-dot';
+                el.style.top = d.top;
+                el.style.left = d.left;
+                el.style.width = d.size + 'px';
+                el.style.height = d.size + 'px';
+                el.style.animationDuration = (6 + d.delay) + 's';
+                el.style.animationDelay = d.delay + 's';
+                fxContainer.appendChild(el);
+            });
+        }
+
+        // ---------- Magnetic buttons ----------
+        if (!reducedMotion && !isTouch) {
+            document.querySelectorAll('.magnetic').forEach(btn => {
+                btn.addEventListener('mousemove', e => {
+                    const r = btn.getBoundingClientRect();
+                    const x = (e.clientX - r.left - r.width / 2) * 0.25;
+                    const y = (e.clientY - r.top - r.height / 2) * 0.25;
+                    btn.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+            });
+        }
+
+        // ---------- Reveal on scroll ----------
+        const revealEls = document.querySelectorAll('[data-reveal]');
+        if (reducedMotion) {
+            revealEls.forEach(el => el.classList.add('is-visible'));
+        } else {
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => revealObserver.observe(el));
+        }
+
+        if (reducedMotion) return; // Skip all scroll-linked cinematic transforms.
+
+        // ---------- Scroll-linked cinematic engine ----------
+        const ampScale = window.innerWidth < 700 ? 0.55 : 1;
+        let amp = ampScale;
+        window.addEventListener('resize', () => { amp = window.innerWidth < 700 ? 0.55 : 1; });
+
+        const heroWrap = document.getElementById('hero-parallax');
+        function heroExit() {
+            const vh = window.innerHeight;
+            const p = Math.max(0, Math.min(1, window.scrollY / (vh * 0.9)));
+            return {
+                opacity: 1 - 0.6 * p,
+                transform: `perspective(1200px) translateY(${-60 * p}px) scale(${1 - 0.08 * p}) rotateX(${-10 * p}deg)`,
+                filter: `blur(${(p * 4).toFixed(2)}px)`
+            };
+        }
+
+        const chapterEls = document.querySelectorAll('.chapter');
+        function chapterTransform(el) {
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const center = rect.top + rect.height / 2;
+            const dist = (center - vh / 2) / vh;
+            const clamped = Math.max(-1.3, Math.min(1.3, dist));
+            const progress = 1 - Math.min(1, Math.abs(clamped));
+            const tilt = (clamped > 0 ? 1 : -1) * (1 - progress) * 14 * amp;
+            const tz = -(1 - progress) * 160 * amp;
+            const scale = 0.9 + 0.1 * progress;
+            const op = 0.35 + 0.65 * progress;
+            return { opacity: op, transform: `perspective(1400px) translateZ(${tz}px) rotateX(${tilt}deg) scale(${scale})` };
+        }
+
+        const journeyPin = document.getElementById('journey-pin');
+        const journeyCards = document.querySelectorAll('[data-journey-card]');
+        const journeyDots = document.querySelectorAll('[data-dot]');
+        const journeyRoad = document.getElementById('journey-road');
+
+        function cardTransform(i, progress, count) {
+            const raw = progress * count - i;
+            let ty, op, scale, blur, rx, z;
+            if (raw <= -1) { ty = 140; op = 0.12; scale = 0.78; blur = 6; rx = 18; z = -200; }
+            else if (raw < 0) { const t = 1 + raw; ty = 140 * (1 - t); op = 0.12 + 0.88 * t; scale = 0.78 + 0.22 * t; blur = 6 * (1 - t); rx = 18 * (1 - t); z = -200 * (1 - t); }
+            else if (raw < 1) { ty = 0; op = 1; scale = 1; blur = 0; rx = -raw * 6; z = -raw * 50; }
+            else { const t = Math.min(1, raw - 1); ty = -90 * t; op = 1 - 0.85 * t; scale = 1 - 0.16 * t; blur = 5 * t; rx = -6 - 4 * t; z = -50 - 150 * t; }
+            return { ty, op, scale, blur, rx, z };
+        }
+
+        function updateJourney() {
+            if (!journeyPin || !journeyCards.length) return;
+            const rect = journeyPin.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const total = rect.height - vh;
+            const progress = total > 0 ? Math.max(0, Math.min(1, -rect.top / total)) : 0;
+            const count = journeyCards.length;
+
+            journeyCards.forEach((card, i) => {
+                const c = cardTransform(i, progress, count);
+                card.style.transform = `translate3d(0, ${(c.ty * amp).toFixed(1)}px, ${(c.z * amp).toFixed(1)}px) rotateX(${(c.rx * amp).toFixed(2)}deg) scale(${c.scale.toFixed(3)})`;
+                card.style.opacity = c.op.toFixed(3);
+                card.style.filter = c.blur > 0.01 ? `blur(${c.blur.toFixed(2)}px)` : 'none';
+                const raw = progress * count - i;
+                card.style.zIndex = 100 - Math.round(Math.abs(raw) * 10);
+            });
+
+            const activeIdx = Math.min(count - 1, Math.floor(progress * count));
+            journeyDots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+
+            if (journeyRoad) {
+                const angle = Math.sin(progress * Math.PI * 2) * 6 * amp;
+                const shift = Math.sin(progress * Math.PI * 2) * 30 * amp;
+                journeyRoad.style.transform = `translateX(${shift.toFixed(1)}px) rotate(${angle.toFixed(2)}deg)`;
+            }
+        }
+
+        function updateNavActive() {
+            const ids = ['home', 'skills', 'projects', 'experience', 'contact'];
+            let current = 'home';
+            ids.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 130) current = id;
+            });
+            document.querySelectorAll('[data-nav-link]').forEach(a => {
+                a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+            });
+            const nav = document.getElementById('site-nav');
+            if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+        }
+
+        let ticking = false;
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                if (heroWrap) {
+                    const h = heroExit();
+                    heroWrap.style.opacity = h.opacity;
+                    heroWrap.style.transform = h.transform;
+                    heroWrap.style.filter = h.filter;
+                }
+                chapterEls.forEach(el => {
+                    const c = chapterTransform(el);
+                    el.style.opacity = c.opacity;
+                    el.style.transform = c.transform;
+                });
+                updateJourney();
+                updateNavActive();
+                ticking = false;
+            });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        onScroll();
+    });
+    </script>
 </body>
 </html>
