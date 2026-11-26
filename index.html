@@ -4,27 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asive Daniel Simoki - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#C0943B',
-                        secondary: '#0F1E3A',
-                        midnight: '#0A1424',
-                        code: '#1A1A1A',
-                        accent: '#C0943B',
-                    },
-                    fontFamily: {
-                        mono: ['"Fira Code"', 'monospace'],
-                        sans: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
@@ -45,9 +26,14 @@
 
         .skill-badge { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; border: 1px solid transparent; }
         .skill-badge:hover { transform: translateY(-3px); border-color: #C0943B; box-shadow: 0 5px 15px rgba(192,148,59,0.2); background-color: rgba(192,148,59,0.08); }
-        .expertise-tab { color: #D1D5DB; background: transparent; }
-        .expertise-tab:hover { background: rgba(255,255,255,0.05); }
-        .expertise-tab.active { background: rgba(192,148,59,0.14); color: #C0943B; }
+        .expertise-tab { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #E5E7EB; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.16); cursor: pointer; box-shadow: 0 2px 0 rgba(0,0,0,0.35); -webkit-tap-highlight-color: transparent; }
+        .expertise-tab::after { content: '\f054'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.75rem; line-height: 1; color: #C0943B; transition: transform .2s ease; }
+        .expertise-tab:hover { border-color: rgba(192,148,59,0.65); background: rgba(192,148,59,0.08); }
+        .expertise-tab:hover::after { transform: translateX(3px); }
+        .expertise-tab:active { transform: translateY(1px) scale(0.98); box-shadow: none; }
+        .expertise-tab:focus-visible { outline: 2px solid #C0943B; outline-offset: 2px; }
+        .expertise-tab.active { background: #C0943B; border-color: #C0943B; color: #0F1E3A; box-shadow: 0 6px 18px -6px rgba(192,148,59,0.6); }
+        .expertise-tab.active::after { color: #0F1E3A; }
         .expertise-tag { font-size: 13.5px; font-weight: 600; color: #E5E7EB; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 9px 16px; border-radius: 100px; }
         .project-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
         .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5); border-color: rgba(192,148,59,0.4); }
@@ -67,7 +53,7 @@
         .mask-reveal.is-visible > span { transform: translateY(0); }
 
         /* --- Hero parallax + floating particles --- */
-        #hero-parallax { will-change: transform, opacity, filter; }
+        #hero-parallax { will-change: transform, opacity; }
         .fx-dot { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(192,148,59,0.85), transparent 70%); pointer-events: none; animation: fxDrift ease-in-out infinite; }
         @keyframes fxDrift { 0%, 100% { transform: translate(0,0); opacity: .45; } 50% { transform: translate(10px,-26px); opacity: 1; } }
 
@@ -77,7 +63,7 @@
         /* --- Cinematic Journey --- */
         #journey-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .journey-road { position: absolute; left: -30%; right: -30%; bottom: 0; height: 46%; background: repeating-linear-gradient(90deg, transparent 0 38px, rgba(192,148,59,0.16) 38px 41px); transform-origin: bottom center; pointer-events: none; }
-        .journey-card { position: absolute; inset: 0; margin: auto; width: min(640px, 92vw); height: min(440px, 62vh); background: #101F3D; border: 1px solid rgba(192,148,59,0.22); border-radius: 20px; padding: clamp(24px,3.4vw,40px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.65); will-change: transform, opacity, filter; }
+        .journey-card { position: absolute; inset: 0; margin: auto; width: min(640px, 100%); height: min(440px, 62vh); background: #101F3D; border: 1px solid rgba(192,148,59,0.22); border-radius: 20px; padding: clamp(24px,3.4vw,40px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.65); will-change: transform, opacity; }
         .journey-dots { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
         .journey-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background-color .3s ease; }
         .journey-dot.active { background: #C0943B; }
@@ -94,6 +80,26 @@
         [data-motion="reduced"] .journey-road, [data-motion="reduced"] .journey-dots { display: none; }
         [data-motion="reduced"] .journey-card { position: relative; inset: auto; width: 100%; max-width: 640px; margin: 0 auto 24px; opacity: 1 !important; transform: none !important; filter: none !important; }
         [data-motion="reduced"] .mask-reveal > span { transition: none; }
+
+        /* --- Phones: no scroll blur/fade on sections, roomier tap targets --- */
+        @media (max-width: 699px) {
+            .chapter, #hero-parallax { transform: none !important; opacity: 1 !important; filter: none !important; }
+            .hero-actions { flex-direction: column; gap: 12px; }
+            .hero-actions > * { margin: 0 !important; justify-content: center; text-align: center; }
+            #contact .contact-btn { width: 100%; justify-content: center; padding: 14px 16px; font-size: 1rem; }
+            #site-nav { background-color: #0F1E3A !important; }
+
+            /* Expertise: 2x2 grid of tappable buttons */
+            .expertise-tab { justify-content: center; text-align: center; min-height: 60px; padding: 12px 10px; line-height: 1.25; }
+            .expertise-tab::after { display: none; }
+
+            /* Journey: plain stacked cards instead of the 400vh scroll-through */
+            #journey-pin { height: auto !important; }
+            #journey-sticky { position: static; height: auto; display: block; overflow: visible; padding-bottom: 56px; }
+            .journey-road, .journey-dots, .journey-vignette { display: none; }
+            .journey-stage { width: 100% !important; height: auto !important; }
+            .journey-card { position: relative; inset: auto; height: auto; margin: 0 0 16px; opacity: 1 !important; transform: none !important; }
+        }
     </style>
 </head>
 <body class="text-white font-sans">
@@ -109,19 +115,19 @@
                     <a href="#experience" data-nav-link class="nav-link">Journey</a>
                     <a href="#contact" data-nav-link class="nav-link">Contact</a>
                 </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <button class="md:hidden focus:outline-none p-3 -mr-3" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
             <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <div class="flex flex-col space-y-3">
-                    <a href="#home" class="hover:text-primary transition">Home</a>
-                    <a href="#skills" class="hover:text-primary transition">Skills</a>
-                    <a href="#projects" class="hover:text-primary transition">Work</a>
-                    <a href="#experience" class="hover:text-primary transition">Journey</a>
-                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                <div class="flex flex-col">
+                    <a href="#home" class="block py-3 hover:text-primary transition">Home</a>
+                    <a href="#skills" class="block py-3 hover:text-primary transition">Skills</a>
+                    <a href="#projects" class="block py-3 hover:text-primary transition">Work</a>
+                    <a href="#experience" class="block py-3 hover:text-primary transition">Journey</a>
+                    <a href="#contact" class="block py-3 hover:text-primary transition">Contact</a>
                 </div>
             </div>
         </div>
@@ -144,9 +150,9 @@
                     <span class="typewriter text-white">Full Stack Developer & UX/UI Designer</span>
                 </h2>
                 <p class="text-white mb-8 max-w-lg">
-                    Versatile and driven Full Stack Developer with practical experience building user-centric web applications and solutions, including an E-Commerce Website with admin dashboard (Vue.js, Node.js, MySQL, Stripe/Paystack), an Employee Information Dashboard (HTML, CSS, JavaScript), a Fast Food Mobile Ordering App concept (SCRUM methodology), a Price Comparison App (Flutter + Python web scraping), and an Oracle APEX Enterprise Analytics Project. At Ferguson Media I own projects end to end, covering design, development, SEO, deployment, and Google Analytics, for clients across finance, tourism, and NGO sectors. A graduate of Life Choices Academy's intensive development bootcamp and internship program, I bring strong teamwork, communication, and problem-solving skills, and I'm committed to continuous learning and contributing to impactful digital solutions.
+                    Full Stack Developer at Ferguson Media, where I own client websites end to end: design, development, SEO, deployment and analytics, for clients in finance, tourism, NGO and media. I've built e-commerce platforms (Vue.js, Node.js, MySQL), Flutter apps and Oracle APEX analytics, and I'm a graduate of Life Choices Academy's development bootcamp.
                 </p>
-                <div class="flex space-x-4 relative z-10">
+                <div class="hero-actions flex space-x-4 relative z-10">
                     <a href="#contact" class="magnetic bg-primary hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition contact-btn relative z-10">
                         Hire Me
                     </a>
@@ -180,14 +186,17 @@
             </div>
 
             <div class="grid md:grid-cols-[240px_1fr] gap-6 reveal mb-20" data-reveal style="transition-delay:80ms">
-                <div class="flex flex-col gap-1" id="expertise-tabs">
-                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="0">Frontend Engineering</button>
-                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="1">Backend &amp; Infrastructure</button>
-                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="2">Product &amp; Design</button>
-                    <button type="button" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="3">Growth &amp; Delivery</button>
+                <div>
+                <p class="font-mono text-xs text-gray-400 mb-3"><i class="fas fa-arrow-pointer text-primary mr-2" aria-hidden="true"></i><span class="md:hidden">Tap</span><span class="hidden md:inline">Click</span> a category to see the tools I use</p>
+                <div class="grid grid-cols-2 gap-2 md:flex md:flex-col" id="expertise-tabs" role="tablist" aria-label="Expertise categories">
+                    <button type="button" role="tab" aria-selected="false" aria-controls="expertise-panel" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="0">Frontend Engineering</button>
+                    <button type="button" role="tab" aria-selected="false" aria-controls="expertise-panel" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="1">Backend &amp; Infrastructure</button>
+                    <button type="button" role="tab" aria-selected="false" aria-controls="expertise-panel" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="2">Product &amp; Design</button>
+                    <button type="button" role="tab" aria-selected="false" aria-controls="expertise-panel" class="expertise-tab text-left px-5 py-3.5 rounded-xl font-semibold text-sm transition" data-tab-index="3">Growth &amp; Delivery</button>
+                </div>
                 </div>
 
-                <div class="bg-secondary border border-white/10 rounded-2xl p-8">
+                <div id="expertise-panel" role="tabpanel" aria-live="polite" class="bg-secondary border border-white/10 rounded-2xl p-5 sm:p-8">
                     <p id="expertise-desc" class="text-gray-300 leading-relaxed mb-7"></p>
                     <div id="expertise-tags" class="flex flex-wrap gap-3"></div>
                 </div>
@@ -274,11 +283,11 @@
                 <!-- Ferguson Media -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal>
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/fergusonmedia.png" alt="Ferguson Media logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/fergusonmedia.png" alt="Ferguson Media logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Ferguson Media</h3>
-                        <p class="text-gray-300 mb-4">A youth-driven South African media and technology company blending storytelling, digital innovation, and CSI content production, with radio distribution reaching 8.5M+ potential listeners.</p>
+                        <p class="text-gray-300 mb-4">A youth-driven South African media and technology company blending storytelling, digital innovation, and CSI content production.</p>
                         <div class="mt-auto pt-4 flex justify-center">
                             <a href="https://fergusonmedia.co.za/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-secondary border border-primary/40 hover:border-primary px-5 py-2.5 rounded-full text-sm font-semibold transition">
                                 <i class="fas fa-external-link-alt"></i><span>Visit Site</span>
@@ -290,7 +299,7 @@
                 <!-- Empire Partner Foundation SSIF -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:60ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/epfssif.png" alt="Empire Partner Foundation SSIF logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/epfssif.png" alt="Empire Partner Foundation SSIF logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Empire Partner Foundation SSIF</h3>
@@ -306,7 +315,7 @@
                 <!-- EPF Ecosystem -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:120ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/epfecosystem.png" alt="EPF Ecosystem logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/epfecosystem.png" alt="EPF Ecosystem logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">EPF Ecosystem</h3>
@@ -322,7 +331,7 @@
                 <!-- One Water -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:180ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/onewater.png" alt="One Water logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/onewater.png" alt="One Water logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">One Water</h3>
@@ -338,7 +347,7 @@
                 <!-- Tourism Mobility Service -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal>
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/tourismmobility.png" alt="Tourism Mobility Service logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/tourismmobility.png" alt="Tourism Mobility Service logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Tourism Mobility Service</h3>
@@ -354,7 +363,7 @@
                 <!-- Entrepreneur Wealth Creation -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:60ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/entrepreneurwealth.png" alt="Entrepreneur Wealth Creation logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/entrepreneurwealth.png" alt="Entrepreneur Wealth Creation logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Entrepreneur Wealth Creation</h3>
@@ -370,7 +379,7 @@
                 <!-- Capital Innovation Fund -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:120ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/capitalinnovation.png" alt="Capital Innovation Fund logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/capitalinnovation.png" alt="Capital Innovation Fund logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Capital Innovation Fund</h3>
@@ -386,7 +395,7 @@
                 <!-- Queensway Capital -->
                 <div class="project-card reveal bg-[#16294F] border border-white/5 rounded-lg overflow-hidden shadow-lg flex flex-col h-full" data-reveal style="transition-delay:180ms">
                     <div class="h-48 overflow-hidden bg-[#0F1B33] flex items-center justify-center p-8">
-                        <img src="img/clients/queensway.png" alt="Queensway Capital logo" class="max-w-full max-h-full object-contain brightness-0 invert">
+                        <img loading="lazy" src="img/clients/queensway.png" alt="Queensway Capital logo" class="max-w-full max-h-full object-contain brightness-0 invert">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold text-primary mb-2">Queensway Capital</h3>
@@ -405,24 +414,24 @@
 
     <!-- JOURNEY (cinematic pinned experience) -->
     <section id="experience" class="relative bg-[#0C1830] z-10">
-        <div class="max-w-2xl mx-auto px-6 pt-28 pb-10 text-center">
+        <div class="max-w-2xl mx-auto px-6 pt-20 md:pt-28 pb-8 md:pb-10 text-center">
             <div class="font-mono text-xs tracking-widest uppercase text-primary mb-4 reveal" data-reveal>Career Path</div>
             <h2 class="mask-reveal reveal text-3xl md:text-5xl font-bold mb-5" data-reveal><span>The road so far.</span></h2>
-            <p class="text-gray-400 max-w-md mx-auto text-sm leading-relaxed reveal" data-reveal style="transition-delay:120ms">Scroll to travel through each chapter &mdash; the active role comes into focus while the rest recede into the distance.</p>
+            <p class="hidden md:block text-gray-400 max-w-md mx-auto text-sm leading-relaxed reveal" data-reveal style="transition-delay:120ms">Scroll to travel through each chapter &mdash; the active role comes into focus while the rest recede into the distance.</p>
         </div>
 
         <div id="journey-pin" class="relative" style="height: 400vh;">
             <div id="journey-sticky">
                 <div id="journey-road" class="journey-road"></div>
-                <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center 60%, transparent 30%, #0C1830 85%);"></div>
+                <div class="journey-vignette absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center 60%, transparent 30%, #0C1830 85%);"></div>
 
                 <div class="relative z-[2] w-full h-full flex items-center justify-center px-5">
-                    <div class="relative" style="width:min(640px,92vw); height:min(440px,62vh);">
+                    <div class="journey-stage relative" style="width:min(640px,92vw); height:min(440px,62vh);">
 
                         <div class="journey-card" data-journey-card data-index="0">
                             <div class="flex justify-between items-start gap-3 mb-4">
                                 <div class="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-mono font-bold">01</div>
-                                <div class="font-mono text-xs text-gray-400 text-right">Mar 2026 &ndash; Present &middot; 5 mos</div>
+                                <div class="font-mono text-xs text-gray-400 text-right">Mar 2026 &ndash; Present<span data-since="2026-03"></span></div>
                             </div>
                             <div class="text-xl md:text-2xl font-bold mb-1">Web Developer</div>
                             <div class="text-primary font-semibold text-sm mb-4">Ferguson Media ZA &middot; Full-time</div>
@@ -493,7 +502,7 @@
                 <h2 class="mask-reveal reveal text-3xl font-bold" data-reveal><span>Get In Touch</span></h2>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-12 text-center reveal" data-reveal>
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-5 sm:p-12 text-center reveal" data-reveal>
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-primary mb-4">Ready to start a project?</h3>
                     <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -522,14 +531,14 @@
                             <i class="fas fa-envelope text-primary text-2xl"></i>
                         </div>
                         <h4 class="font-bold text-white mb-1">Email</h4>
-                        <p class="text-gray-300">danielasivesimoki05@gmail.com</p>
+                        <a href="mailto:danielasivesimoki05@gmail.com" class="text-gray-300 hover:text-primary transition break-all">danielasivesimoki05@gmail.com</a>
                     </div>
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                             <i class="fas fa-phone-alt text-primary text-2xl"></i>
                         </div>
                         <h4 class="font-bold text-white mb-1">Phone</h4>
-                        <p class="text-gray-300">076 592 7136</p>
+                        <a href="tel:+27765927136" class="text-gray-300 hover:text-primary transition">076 592 7136</a>
                     </div>
                 </div>
 
@@ -561,6 +570,14 @@
         document.documentElement.setAttribute('data-motion', reducedMotion ? 'reduced' : 'full');
         const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 
+        // ---------- Live duration for current role ----------
+        document.querySelectorAll('[data-since]').forEach(el => {
+            const [y, m] = el.getAttribute('data-since').split('-').map(Number);
+            const now = new Date();
+            const months = (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m) + 1;
+            if (months > 0) el.innerHTML = ' &middot; ' + months + (months === 1 ? ' mo' : ' mos');
+        });
+
         // ---------- Mobile menu ----------
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -584,7 +601,11 @@
         const expertiseDesc = document.getElementById('expertise-desc');
         const expertiseTags = document.getElementById('expertise-tags');
         function setExpertiseTab(i) {
-            expertiseTabs.forEach(t => t.classList.toggle('active', parseInt(t.getAttribute('data-tab-index'), 10) === i));
+            expertiseTabs.forEach(t => {
+                const on = parseInt(t.getAttribute('data-tab-index'), 10) === i;
+                t.classList.toggle('active', on);
+                t.setAttribute('aria-selected', String(on));
+            });
             const cat = expertiseCategories[i];
             if (expertiseDesc) expertiseDesc.textContent = cat.desc;
             if (expertiseTags) {
@@ -678,8 +699,7 @@
             const p = Math.max(0, Math.min(1, window.scrollY / (vh * 0.9)));
             return {
                 opacity: 1 - 0.6 * p,
-                transform: `perspective(1200px) translateY(${-60 * p}px) scale(${1 - 0.08 * p}) rotateX(${-10 * p}deg)`,
-                filter: `blur(${(p * 4).toFixed(2)}px)`
+                transform: `perspective(1200px) translateY(${-60 * p}px) scale(${1 - 0.08 * p}) rotateX(${-10 * p}deg)`
             };
         }
 
@@ -725,7 +745,6 @@
                 const c = cardTransform(i, progress, count);
                 card.style.transform = `translate3d(0, ${(c.ty * amp).toFixed(1)}px, ${(c.z * amp).toFixed(1)}px) rotateX(${(c.rx * amp).toFixed(2)}deg) scale(${c.scale.toFixed(3)})`;
                 card.style.opacity = c.op.toFixed(3);
-                card.style.filter = c.blur > 0.01 ? `blur(${c.blur.toFixed(2)}px)` : 'none';
                 const raw = progress * count - i;
                 card.style.zIndex = 100 - Math.round(Math.abs(raw) * 10);
             });
@@ -763,7 +782,6 @@
                     const h = heroExit();
                     heroWrap.style.opacity = h.opacity;
                     heroWrap.style.transform = h.transform;
-                    heroWrap.style.filter = h.filter;
                 }
                 chapterEls.forEach(el => {
                     const c = chapterTransform(el);
